@@ -70,5 +70,6 @@ app.use("/api/data", login);
 //     res.json(fetch);
 // });
 
-app.listen(port); //Application listens at 8084 port.
-console.log(`App running on http://localhost:${port}`);
+app.listen(process.env.PORT || 3000, function () {
+    console.log(`App running`);
+});
