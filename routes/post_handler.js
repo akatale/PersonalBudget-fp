@@ -9,7 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({
 });
 var eventDb = require("../utility/eventDB");
 var userDb = require("../utility/userDB");
-var userProfile = require("../utility/userProfileDB");
+var userProfile = require("../utility/UserProfileDB");
 var userModel = require("../models/userModel");
 
 var compression = require('compression');

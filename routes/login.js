@@ -10,7 +10,7 @@ const {
 var eventDb = require("../utility/eventDB");
 var usereventDb = require("../utility/UserProfileDB");
 var userDb = require("../utility/userDB");
-// var userProfile = require("../utility/userProfileDB");
+// var userProfile = require("../utility/UserProfileDB");
 // var userModel = require("../models/userModel");
 const { JsonWebTokenError } = require('jsonwebtoken');
 

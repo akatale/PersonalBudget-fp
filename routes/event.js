@@ -17,7 +17,7 @@ const {
 } = require('express-validator');
 var eventDb = require("../utility/eventDB");
 var userDb = require("../utility/userDB");
-var userProfileDb = require("../utility/userProfileDB");
+var userProfileDb = require("../utility/UserProfileDB");
 
 
 var urlencodedParser = bodyParser.urlencoded({
