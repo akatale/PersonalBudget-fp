@@ -49,9 +49,7 @@ var index = require(__dirname + "/routes/index");
 var login = require(__dirname + "/routes/login");
 var signup = require(__dirname + "/routes/signup");
 var event = require(__dirname + "/routes/event");
-// var events = require(__dirname + "/routes/events");
 var postreq = require(__dirname + "/routes/post_handler");
-// var admin = require(__dirname + "/routes/adminConsole");
 
 
 
@@ -61,14 +59,8 @@ app.use("/", index); //This route is used for home page.
 app.use("/login", login); //This route is used for login page.
 app.use("/signup", signup); //This route is used for signup page.
 app.use("/event", event); //This route is used for event page.
-// app.use("/events", events); //This route is used for events page.
-// app.use("/admin", admin);
 app.use("/api/data", login);
-// var fetch = require('./server.json');
-// app.get('/budget', (req, res) => {
-//     // res.json(budget);
-//     res.json(fetch);
-// });
+
 
 app.listen(process.env.PORT || 3000, function () {
     console.log(`App running`);
