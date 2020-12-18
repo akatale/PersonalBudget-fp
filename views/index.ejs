@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <article> tag is adeed as Semantic HTML in this page-->
+    <!-- (h2: Header tag) is added as SEO in this page-->
+    <meta charset="UTF-8" />
+    <title>Personal Budget</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+  </head>
+  <style></style>
+  <body class="background">
+    <%- include ('./partials/header.ejs',currentUser) %>
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- This is an SEO Change (h2: Header tag) -->
+        <h2>Why should you join us?</h2>
+
+        <ul>
+          <li>
+            <!-- This is a Semantic HTML Change (<article>) -->
+            <article>
+              <p>
+                <h3>We Help Ensure You Don't Spend Money You Don't Have</h3>
+                Far too many consumers spend money they don't have—and we owe it all to credit cards.
+              </p>
+          </article>
+          </li>
+          <li>
+            <p>
+              <h3>We Help Shed Light on Bad Spending Habits</h3>
+              Building a budget forces you to take a close look at your spending habits. 
+              You may notice that you're spending money on things you don't need.
+              Budgeting allows you to rethink your spending habits and re-focus your financial goals.
+            </p>
+          </li>
+          <li>
+            <p>
+              <h3>We Help You Prepare for Emergencies</h3>
+              Life is filled with unexpected surprises, some better than others. When you get laid off, 
+              become sick or injured, go through a divorce, or have a death in the family, it can lead 
+              to some serious financial turmoil. Of course, it seems like these emergencies always arise
+               at the worst possible time—when you're already strapped for cash. This is exactly why 
+               everyone needs personal budgeting.
+            </p>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+    <%- include ('./partials/footer.ejs') %>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

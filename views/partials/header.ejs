@@ -1,0 +1,127 @@
+<header class="jumbotron">
+  <div class="container-fluid" style="margin-top: -20px">
+    <div class="row">
+      <div class="col-sm-2" style="max-width: fit-content">
+        <a href="/"
+          ><img
+            src="/assets/Images/unnamed.png"
+            width="70px"
+            height="70px"
+            style="border-radius: 25px"
+        /></a>
+      </div>
+      <div class="col-sm-5">
+        <!-- This is an SEO Change (h2: Header tag) -->
+        <h2 class="text-left" style="color:white"><i>Personal Budget</i></h2>
+      </div>
+      <div class="col-sm-4 offset-md-1" style="position: absolute; right: 0">
+        <ul class="list-inline">
+          <% if (token) {  %>
+            <% var token = token.token %>
+          <% } %>
+          <% if (currentUser) { %>
+            <% var user = currentUser.userId %>
+            <li class="list-inline-item">
+              <a
+                class="btn btn-outline-info"
+                role="button"
+                href="/login/dashboard"
+                >My Dashboard
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a
+                class="btn btn-outline-info"
+                role="button"
+                href="/login/savedevents"
+                >My Budget
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a
+                class="btn btn-outline-info"
+                href="/event/newevent"
+                role="button"
+                >Configure Budget <i class="fa fa-calendar" aria-hidden="true"></i>
+              </a>
+            </li> 
+            <li class="list-inline-item">
+              <a class="btn btn-outline-info" href="/login/signout" role="button"
+                >Sign Out <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </li>
+          <% } else { %>
+          <li class="list-inline-item">
+            <a class="btn btn-outline-info" role="button" href="/login"
+              >Login <i class="fa fa-sign-in" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn btn-outline-info" role="button" href="/signup"
+              >Sign Up <i class="fa fa-user-plus"></i
+            ></a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-between" style="margin-top: 10px">
+    <div class="col-sm-4">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a class="btn btn-outline-info btn-sm" role="button" href="/"
+            ><i class="fa fa-home" aria-hidden="true"></i> Home
+          </a>
+        </li>
+        <% if (currentUser && currentUser.isAdmin) { %>
+        <li class="list-inline-item">
+          <a class="btn btn-outline-info btn-sm" href="/admin" role="button"
+            >Admin Console</a
+          >
+        </li>
+        <% }%>
+      </ul>
+    </div>
+    <% if (currentUser) { %>
+    <div class="col-sm-4">
+      <h4 style="color:yellow">Welcome <%=currentUser.firstName %>!</h4>
+    </div>
+    <% } %>
+  </div>
+</header>
+
+<br />
+<script>
+  if (<%- user %>) {
+    myFunction();
+  }
+  function myFunction() {
+      myVar = setTimeout(alertFunc, 40000);
+  }
+  function alertFunc() {
+      var txt;
+      var r = confirm("Your session will be expired in next 20 seconds, Press cancel to refresh the session");
+      if (r == true) 
+      {
+          txt = "You pressed OK!";
+          myRemainFunction()
+      } 
+      else 
+      {
+          txt = "You pressed Cancel!";
+          myFunction();
+      }
+    }
+
+  function myRemainFunction() {
+      myVar = setTimeout(alertRemainFunc, 20000);
+  }
+
+  function alertRemainFunc() {
+      window.location.href = '/login/signout';
+  }
+</script>

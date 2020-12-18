@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  color: white;
+  font-family: cursive, Arial, sans-serif;
+  font-size: 15px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbotron {
+  height: 50px;
+  background: rgba(0, 0, 0, 0.158);
+}
+
+.list-group-item {
+  border: none;
+  background-color: transparent;
+}
+
+.login-class {
+  border: none;
+}
+
+.btn-sm {
+  border-radius: 1rem;
+}
+
+.background {
+  background: url(../assets/Images/login-background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+}

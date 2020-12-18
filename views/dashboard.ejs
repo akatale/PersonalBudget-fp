@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <button> tag is added as A11y Change in this page-->
+<!-- (Open Graph tag), (Twitter card tag) are added as SEO Change in this page-->
+<head>
+    <meta charset="UTF-8" />
+    <title>Personal Budget</title>
+    <!-- This is an SEO Change (Open Graph tag)-->
+    <meta name="og:title" property="og:title" content="Personal Budget">
+    <!-- This is an SEO Change (Twitter card tag)-->
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/assets/dashboard.css" />
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+</head>
+
+<body class="background">
+    <%- include ('./partials/header.ejs',{currentUser}) %>
+    
+    <div style= "color:white" class="container center">
+
+        <div class="page-area">
+            
+            <% if (dataSource) { %>
+                <% var test = dataSource %>
+                <% var labels = [] %>
+                <% test.labels.forEach(label => labels.push('"' + label + '"')) %>
+                <% }%>
+            <div class="text-box">
+                <form method="POST" action="/login/dashboard">
+                    <div class = "form-group row", style="font-size: 30px;">
+                        <label class="col-sm-2 col-form-label">Month:</label>
+                        <div class = "col-sm-10">
+                            <select id="month" name = "Month">
+                              <option value="01">January</option>
+                              <option value="02">February</option>
+                              <option value="03">March</option>
+                              <option value="04">April</option>
+                              <option value="05">May</option>
+                              <option value="06">June</option>
+                              <option value="07">July</option>
+                              <option value="08">August</option>
+                              <option value="09">September</option>
+                              <option value="10">October</option>
+                              <option value="11">November</option>
+                              <option value="12">December</option>
+                            </select>
+                         </div>
+                         <label class="col-sm-2 col-form-label">Year:</label>
+                         <div class = "col-sm-10">   
+                            <select id="year" name = "Year">
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- This is an A11y Change (<button> tag) -->
+                      <button type="submit" class="bt" name="Create_event">Generate Chart <i class="fa fa-plus"
+                          aria-hidden="true"></i>
+                      </button>
+                </form>
+                <% if (month) { %>
+                    <% if (month == "01")  { %>
+                        <h1>Charts for January <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "02") { %>
+                        <h1>Charts for February <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "03") { %>
+                        <h1>Charts for March <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "04") { %>
+                        <h1>Charts for April <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "05") { %>
+                        <h1>Charts for May <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "06") { %>
+                        <h1>Charts for June <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "07") { %>
+                        <h1>Charts for July <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "08") { %>
+                        <h1>Charts for August <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "09") { %>
+                        <h1>Charts for September <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "10") { %>
+                        <h1>Charts for October <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "11") { %>
+                        <h1>Charts for November <%= (year) %></h1>
+                    <% }%>
+                    <% if (month == "12") { %>
+                        <h1>Charts for December <%= (year) %></h1>
+                    <% }%>
+                <% }%>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div style= "color:white" class="container center">
+        <table>
+            <tr>
+                <td style= "padding-left:100px; padding-right:100px; padding-bottom:100px">
+                    <p>
+                        <canvas id = "myChart" width = "400" height = "400"></canvas>
+                    </p>
+                </td>
+                <td style= "padding-left:100px; padding-right:100px; padding-bottom:100px">
+                    <p>
+                        <canvas id = "myBarChart" width = "400" height = "400"></canvas>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th style= "padding-left:100px; padding-right:100px">
+                    <p>
+                        <canvas id = "LineChart" width = "400" height = "400"></canvas>
+                    </p>
+                </th>
+                <th style= "padding-left:100px; padding-right:100px">
+                    <p>
+                        <canvas id = "DoughnutChart" width = "400" height = "400"></canvas>
+                    </p>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script>
+            var dataSource = {
+            datasets: [
+                {
+                    data: [<%= test.datasets[0].data %>],
+                    backgroundColor: [
+                        '#ffcd56',
+                        '#ff6384',
+                        '#36a2eb',
+                        '#fd6b19',
+                        'green',
+                        'violet',
+                        'black',
+                        'brown',
+                        'pink',
+                        'gray',
+                       
+                    ],
+                }
+            ],
+            labels: [<%- labels %>],
+            
+        };
+
+        function createChart() {
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: dataSource,
+                options:{
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createLineChart() {
+            var ctx = document.getElementById("LineChart").getContext("2d");
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: dataSource,
+                options:{
+                    legend: {
+                        display: legendDisplay,
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    },
+                    scales:{
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                
+                                stepValue: 10,
+                                fontColor: 'white'
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: 'white'
+                                },
+                            }]
+                        }
+                    }
+            });
+        }
+
+        function createDoughnutChart() {
+            var ctx = document.getElementById("DoughnutChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: dataSource,
+                options:{
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createBarChart(type,id,legendDisplay) {
+            var ctx = document.getElementById(id).getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: type,
+                data: dataSource,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                options:{
+                    legend: {
+                        display: legendDisplay,
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    },
+                    scales:{
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                
+                                stepValue: 10,
+                                fontColor: 'white'
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: 'white'
+                                },
+                            }]
+                        }
+                    }
+                });
+        }
+
+        // createChart(type='pie',id='myChart',legendDisplay=true);
+        createChart();
+        createBarChart(type='bar',id='myBarChart',legendDisplay=false);
+        createLineChart();
+        createDoughnutChart();
+            
+            
+    </script>
+    
+</body>
+</html>

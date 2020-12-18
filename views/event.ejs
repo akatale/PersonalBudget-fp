@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Personal Budget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+
+
+</head>
+
+<body class="background">
+  <%- include ('./partials/header.ejs' ,currentUser) %>
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-sm-6">
+        <h2><%=eventDetails.eventName %></h2>
+      </div>
+      <% if (currentUser && currentUser.isAdmin) { %>
+      <div class="col-sm-6">
+        <form method="POST" action="/postreq">
+          <button class="btn bg-danger " name="deleteEvent" value="<%= eventDetails.eventId %>">
+            Delete Event
+          </button>
+        </form>
+        
+      </div>
+      <% }%>
+    </div>
+   
+
+    <div class="row align-items-center">
+      <div class="col-sm-0.5">
+        <img alt="Person Logo" style="width: 120px;" src=<%= eventDetails.eventImageURL %> />
+      </div>
+      <div class="col-sm-5" style="font-size: larger;">
+        <ul>
+          <li><strong>Hosted by:</strong> <span ><%= eventDetails.hostedby %></span> </li>
+          <li><strong>Date:</strong> <span ><%= eventDetails.eventDate %>  </span>  </li>
+          <li><strong>Time:</strong> <span > <%= eventDetails.eventTime %></span></li>
+          <li><strong>Location:</strong> <span ><%=eventDetails.eventLocation %></span> </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h4>Interested ?</h4>
+        <form method="POST" action="/postreq">
+          <button class="btn bg-success btn-sm" name="rsvp" value="Yes <%= eventDetails.eventId %>">
+            Yes
+          </button>
+          <button class="btn bg-danger btn-sm" name="rsvp" value="No <%= eventDetails.eventId %>">
+            No
+          </button>
+          <button class="btn bg-primary btn-sm" name="rsvp" value="Maybe <%= eventDetails.eventId %>">
+            Maybe
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Details:</h4>
+        <p><%=eventDetails.eventDetails %></p>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <%- include ('./partials/footer.ejs') %>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>

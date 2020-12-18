@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 10px;
+    font-family: Tahoma, Arial;
+    color: white;
+}
+/* .container{
+    display: block;
+    width: 100%;
+    width: 400px;
+    max-width: 400px;
+    padding: 0.75rem;
+    outline: none;
+    transition: background 0.2s, border-color 0.2s;
+  } */
+  
+  .bt{
+      width: max-content;
+      height: max-content;
+      background-color: yellow;
+      font-size: 25px;
+  }
+
+  .jumbotron {
+    height: 50px;
+    background: rgba(0, 0, 0, 0.158);
+  }
+
+nav {
+    text-align: center;
+    display: block;
+    font-size: 15px;
+  }
+
+section{
+    text-align: center;
+    font-size: 12px;
+}
+
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: center;
+    font-style: italic;
+    background-color: lightgray;
+  }
+button{
+    height: 34px;
+    width: 66px;
+}
+
+div.menu {
+    width: 100%;
+    background-color: #4d5791;
+    height: 44px;
+    padding: 0 40px;
+}
+
+div.menu ul,
+div.menu ul li {
+    margin: 0;
+    padding: 0 ;
+    list-style: none;
+    display: inline-block;
+}
+
+div.menu ul li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 44px;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: #fff;
+    margin: 0;
+}
+
+div.menu ul li a:hover  {
+    background-color: white;
+    color: #4d5791;
+}
+
+div.hero {
+    height: 350px;
+    background-color: #b4c6f0;
+    background-image: url('bg.png');
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-top: 40px;
+}
+
+div.hero h1,
+div.hero h2 {
+    text-align: center;
+    margin: 0;
+}
+
+div.hero h1 {
+    color: #fff;
+    font-size: 4.2em;
+    margin-bottom: 20px;
+}
+
+div.hero h2 {
+    color: #4d5791;
+}
+
+.container {
+    padding: 40px;
+    width: 100%;
+}
+
+.page-area {
+    max-width: 768px;
+    display: inline-block;
+}
+
+.bottom {
+    height: 50px;
+    background-color: #b4c6f0;
+    padding: 40px;
+}
+
+.center {
+    text-align: center;
+}
+
+
+@media screen and (min-width: 768px) {
+    .container .div.text-box {
+        margin: 10px;
+    }
+}
+
+.background {
+    background: url(../assets/Images/login-background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+  }

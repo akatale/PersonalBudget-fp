@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Personal Budget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="/assets/newevent.css" />
+
+</head>
+
+<body class="background">
+  <%- include ('./partials/header.ejs',currentUser) %>
+
+  <div class="container">
+    <h3 style="text-align:center"> Configure Budgets</h3>
+    <% if (errors){ %>
+    <p><strong>Please correct the below errors and try again</strong></p>
+    <ul>
+      <% for (var i = 0; i <errors.length;i++){ %>
+      <li style="color: red;"><%= errors[i].msg %> </li>
+      <% } %>
+    </ul>
+    <%} %>
+    <div class="row">
+      <form method="POST" action="/event/newevent">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="type">Type:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" size="25" name="Type" required placeholder="Enter Type">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="amount">Amount($):</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" size="25" name="Amount" required placeholder="Enter Amount">
+          </div>
+        </div>
+        
+        <div class = "form-group row">
+          <label class="col-sm-2 col-form-label">Month:</label>
+          <div class = "col-sm-10">
+              <select id="month" name = "Month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+           </div>
+           <label class="col-sm-2 col-form-label">Year:</label>
+           <div class = "col-sm-10">   
+              <select id="year" name = "Year">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+              </select>
+          </div>
+      </div>
+        <button type="submit" class="btn bg-primary" name="Create_event">Create event <i class="fa fa-plus"
+            aria-hidden="true"></i>
+        </button>
+    </div>
+    </form>
+  </div>
+
+  </div>
+
+
+  <%- include ('./partials/footer.ejs') %>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
